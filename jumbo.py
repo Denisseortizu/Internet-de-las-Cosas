@@ -141,18 +141,6 @@ def sincronizacion_de_tiempo(): # Función para sincronización de tiempo
     hora = datetime.strftime("%H:%M:%S")
     return fecha, hora
 
-def leer_posicion():    # Función para leer la posición
-    # Valores fijos temporales (Sala "O")
-    latitud = 19.721821
-    longitud = -101.185778
-    return latitud, longitud
-
-
-def crear_firma():
-    #Aplicamos un algoritmo de cifrado
-    cadena = generar_cadena()
-    firma = (hashlib.sha512(cadena.encode())).hexdigest()
-    return firma
 
 def crear_certificado(firma, hora): # Función para crear el certificado
     #Aplicamos un algoritmo de cifrado
@@ -209,8 +197,8 @@ def guardar(valor):
     while True:
         registro+= 1
         print("\nRegistro: ", registro)
-        #hora = leer_hora()
-        latitud, longitud = leer_posicion()
+        latitud = 19.721821
+        longitud = -101.185778
         print("\tLeyendo Posición: Latitud = ", latitud, " Longitud: ", longitud)
         print("\tLeyendo Microfono = ", valor)
         firma = '4eae862335cd191d7115fc20d8c9da5291d9388bdf619e039827014355d7348acf9c009a8f15009b636ebd8b8de67dd754cb3b5bd82716717815065c1e2551c8'
